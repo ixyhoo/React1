@@ -10,7 +10,9 @@ const [data, setData] = useState([]);
     }, []);
     return (
         <div className='countries'>
-            <h1>Countries</h1>
+            <ul className="radio-container">
+                <input type="range" min="1" max="250"/>
+            </ul>
             <ul>
                 {data.map((country, index) => (
                 
