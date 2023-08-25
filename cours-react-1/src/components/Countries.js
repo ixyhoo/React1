@@ -5,7 +5,7 @@ import Card from './Card';
 const Countries = () => {
 const [data, setData] = useState([]);
 const [rangeValue, setRangeValue] = useState(36);
-
+const radios = ["Afrique", "Americas", "Asia", "Europe", "Oceania"]
     useEffect(() => {
         axios.get("https://restcountries.com/v3.1/all").then( (res) => setData(res.data));
     }, []);
