@@ -24,6 +24,7 @@ const radios = ["Africa", "America", "Asia", "Europe", "Oceania"]
                 ))}
                 
             </ul>
+            {selectedRadio && <button>Annuler la recherche</button>}
             <ul>
                 {data
                 .filter((country) => country.continents[0].includes(selectedRadio))
