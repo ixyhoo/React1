@@ -10,6 +10,12 @@ const [data, setData] = useState([]);
     return (
         <div className='countries'>
             <h1>Countries</h1>
+            <ul>
+                {data.map((country) => 
+                <li>{country.name.common}</li> )
+                
+                }
+            </ul>
         </div>
     );
 };
