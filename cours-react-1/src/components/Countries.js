@@ -15,8 +15,13 @@ const radios = ["Afrique", "Americas", "Asia", "Europe", "Oceania"]
                 <input type="range" min="1" max="250" defaultValue={rangeValue}
                 onChange={(e) => setRangeValue(e.target.value)} />
 
-                <input type="radio" id='afrique' />
-                <label htmlFor="afrique"></label>
+                {radios.map((continent) => (
+                    <li>
+                        <input type="radio" id={continent} name="continentRadion"/>
+                        <label htmlFor={continent}>{continent}</label>
+                    </li>
+                ))}
+                
             </ul>
             <ul>
                 {data
