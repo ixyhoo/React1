@@ -14,6 +14,9 @@ const [rangeValue, setRangeValue] = useState(36);
             <ul className="radio-container">
                 <input type="range" min="1" max="250" defaultValue={rangeValue}
                 onChange={(e) => setRangeValue(e.target.value)} />
+
+                <input type="radio" id='afrique' />
+                <label htmlFor="afrique"></label>
             </ul>
             <ul>
                 {data
