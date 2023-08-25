@@ -5,7 +5,8 @@ import Card from './Card';
 const Countries = () => {
 const [data, setData] = useState([]);
 const [rangeValue, setRangeValue] = useState(36);
-const radios = ["Afrique", "Americas", "Asia", "Europe", "Oceania"]
+const [selectedRadio, setSelectedRadio] = useState('');
+const radios = ["Africa", "America", "Asia", "Europe", "Oceania"]
     useEffect(() => {
         axios.get("https://restcountries.com/v3.1/all").then( (res) => setData(res.data));
     }, []);
@@ -17,7 +18,7 @@ const radios = ["Afrique", "Americas", "Asia", "Europe", "Oceania"]
 
                 {radios.map((continent) => (
                     <li>
-                        <input type="radio" id={continent} name="continentRadion"/>
+                        <input type="radio" id={continent} name="continentRadio" onChange={(e) => setSelectedRadio(e.target.id)}/>
                         <label htmlFor={continent}>{continent}</label>
                     </li>
                 ))}
@@ -25,6 +26,8 @@ const radios = ["Afrique", "Americas", "Asia", "Europe", "Oceania"]
             </ul>
             <ul>
                 {data
+                .filter((country) => country.continents[0].includes(selectedRadio))
+                .sort((a, b) => b.population - a.population)
                 .slice(0, rangeValue)
                 .map((country, index) => (
                 
